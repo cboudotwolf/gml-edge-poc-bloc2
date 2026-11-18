@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "truck_id": "GML-001",
+  "run_id": "64c9cdab1cda3990726e002ca10dde2544f3498df98812241724166b1edcb672",
+  "input": {
+    "file": "accelerometer_data.csv",
+    "unit": "m/s2",
+    "valid_samples": 10,
+    "invalid_rows": 0,
+    "complete_input": true,
+    "first_timestamp": 1678880000.0,
+    "last_timestamp": 1678880009.0,
+    "observed_mean_frequency_hz": 1.0,
+    "target_sensor_frequency_hz": 100
+  },
+  "method": {
+    "threshold_ms2": 2.5,
+    "alpha": 0.8,
+    "noise_floor_ms2": 0.15,
+    "release_ratio": 0.6,
+    "penalty_per_event": 10,
+    "longitudinal_axis": "acc_y",
+    "rule": "filtered_acc_y < -threshold_ms2",
+    "release_threshold_ms2": 1.5
+  },
+  "scoring": {
+    "type": "pedagogical",
+    "not_insurer_certified": true,
+    "formula": "max(0, 100 - 10 * harsh_braking_count)",
+    "coverage": "only the provided samples, not a full driving day"
+  },
+  "summary": {
+    "harsh_braking_count": 1,
+    "days_analyzed": 1
+  }
+,
+  "days": [
+    {"date_utc": "2023-03-15", "valid_samples": 10, "harsh_braking_count": 1, "score": 90, "events": [{"type": "harsh_braking", "start_timestamp": 1678880005.0, "end_timestamp": 1678880006.0, "peak_raw_y_ms2": -3.45, "peak_filtered_y_ms2": -2.9040000000000004, "samples_in_event": 2, "duration_observed_s": 1.0, "event_id": "201b5e071f6dfdc00dc9", "truck_id": "GML-001"}]}
+  ]
+}
